@@ -1,0 +1,111 @@
+<header>
+       <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+       <style>
+              .flex-container {
+                     padding: 0;
+                     margin: auto;
+                     list-style: none;
+
+                     display: -webkit-box;
+                     display: -moz-box;
+                     display: -ms-flexbox;
+                     display: -webkit-flex;
+                     display: flex;
+
+                     -webkit-flex-flow: row wrap;
+                     justify-content: space-around;
+
+                     width: 900px;
+
+              }
+
+              .flex-item {
+                     border: none;
+                     background: tomato;
+                     padding: 5px;
+                     width: 200px;
+                     height: 150px;
+                     margin-top: 10px;
+
+                     line-height: 150px;
+                     color: white;
+                     font-weight: bold;
+                     font-size: 3em;
+                     text-align: center;
+              }
+
+              .caldisplay {
+                     background-color: aliceblue;
+                     padding: 20px;
+                     border: 1px solid #CCC;
+                     width: 900px;
+                     margin: auto;
+                     box-sizing: border-box;
+              }
+       </style>
+
+
+</header>
+
+<body>
+       <div class="caldisplay" id="lcd"></div>
+
+       <div class="flex-container" id="calc">
+
+              <div class="flex-item">OFF</div>
+              <div class="flex-item">C</div>
+
+              <div class="flex-item"><button type="button" class="flex-item" id="/">/</button></div>
+
+              <div class="flex-item"><button type="button" name="boutoncalc" class="flex-item" value="7" ">7</button></div>
+        <div class=" flex-item"><button type="button" name="boutoncalc" class="flex-item" value="8" ">8</button></div>
+        <div class=" flex-item"><button type="button" name="boutoncalc" class="flex-item" value="9" ">9</button></div>
+
+        <div class=" flex-item"><button type="button" name="boutoncalc" class="flex-item" value="4" ">4</button></div>
+        <div class=" flex-item"><button type="button" name="boutoncalc" class="flex-item" value="5" ">5</button></div>
+        <div class=" flex-item"><button type="button" name="boutoncalc" class="flex-item" value="6" ">6</button></div>
+
+        <div class=" flex-item"><button type="button" name="boutoncalc" class="flex-item" value="1" ">1</button></div>
+        <div class=" flex-item"><button type="button" name="boutoncalc" class="flex-item" value="2" ">2</button></div>
+        <div class=" flex-item"><button type="button" name="boutoncalc" class="flex-item" value="3" ">3</button></div>
+        <div class=" flex-item"><button type="button" name="boutoncalc" class="flex-item" value="0" ">0</button></div>
+        <div class=" flex-item">.</div>
+              <div class="flex-item"><button type="button" class="flex-item" id="=">=</button></div>
+
+
+              <div class="flex-item"><button type="button" class="flex-item" id="*">*</button></div>
+              <div class="flex-item"><button type="button" class="flex-item" id="-">-</button></div>
+              <div class="flex-item"><button type="button" class="flex-item" id="+">+</button></div>
+
+       </div>
+
+
+       <script>
+              const buttons = document.querySelectorAll('button');
+              const display = document.querySelector('.caldisplay');
+              let result = '';
+              let operator = '';
+
+              buttons.forEach((button) => {
+                     button.addEventListener('click', function () {
+                            let selection = button.textContent;
+                            numberSelected(selection);
+
+
+                     })
+              })
+
+
+              // update result/num2 values and display when number is selected
+              function numberSelected(num) {
+                     if (operator == '') {
+                            result += num;
+                            display.textContent = result;
+                     } 
+              }
+
+
+
+       </script>
+</body>
